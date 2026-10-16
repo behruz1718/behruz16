@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oshga taklifnoma</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    padding:25px 12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Georgia,"Times New Roman",serif;
+    background:
+        radial-gradient(circle at 10% 10%,#ffffff 0%,transparent 30%),
+        radial-gradient(circle at 90% 90%,#edf3ed 0%,transparent 35%),
+        #f7f9f5;
+
+    color:#344238;
+}
+
+/* ASOSIY TAKLIFNOMA */
+.card{
+    width:700px;
+    max-width:100%;
+    min-height:900px;
+
+    position:relative;
+    overflow:hidden;
+
+    padding:55px 45px 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fdfefd 50%,
+            #f8fbf7 100%
+        );
+
+    border:1px solid #d7ded4;
+    border-radius:30px;
+
+    box-shadow:
+        0 30px 80px rgba(46,65,48,.16),
+        inset 0 0 50px rgba(100,130,100,.04);
+}
+
+/* NOZIK ICHKI RAMKA */
+.card:before{
+    content:"";
+    position:absolute;
+    inset:14px;
+
+    border:1px solid #dfe6dc;
+    border-radius:22px;
+
+    pointer-events:none;
+}
+
+/* YANA BIR NOZIK CHIZIQ */
+.card:after{
+    content:"";
+    position:absolute;
+    inset:20px;
+
+    border:1px solid rgba(155,170,150,.18);
+    border-radius:19px;
+
+    pointer-events:none;
+}
+
+
+/* =================================
+   GULLAR
+================================= */
+
+.flowers{
+    position:absolute;
+    width:190px;
+    height:190px;
+    z-index:3;
+    pointer-events:none;
+}
+
+.top-left{
+    top:-10px;
+    left:-8px;
+}
+
+.top-right{
+    top:-10px;
+    right:-8px;
+    transform:scaleX(-1);
+}
+
+.bottom-left{
+    bottom:-10px;
+    left:-8px;
+    transform:scaleY(-1);
+}
+
+.bottom-right{
+    bottom:-10px;
+    right:-8px;
+    transform:scale(-1);
+}
+
+
+/* gul */
+.flower{
+    position:absolute;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #d8aeb0 0 8%,
+            #fff 9% 23%,
+            #f7f7f3 24% 40%,
+            #fff 41% 55%,
+            transparent 56%
+        );
+
+    filter:
+        drop-shadow(
+            0 5px 8px rgba(50,70,50,.13)
+        );
+}
+
+
+/* gulning joylari */
+.flower.one{
+    top:15px;
+    left:15px;
+}
+
+.flower.two{
+    top:55px;
+    left:65px;
+    transform:scale(.75);
+}
+
+.flower.three{
+    top:78px;
+    left:15px;
+    transform:scale(.55);
+}
+
+
+/* barglar */
+.leaf{
+    position:absolute;
+
+    width:55px;
+    height:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #728d6d,
+            #a7b99f
+        );
+
+    border-radius:100% 0 100% 0;
+
+    opacity:.9;
+}
+
+.leaf.l1{
+    top:70px;
+    left:95px;
+    transform:rotate(35deg);
+}
+
+.leaf.l2{
+    top:105px;
+    left:75px;
+    transform:rotate(70deg);
+}
+
+.leaf.l3{
+    top:45px;
+    left:105px;
+    transform:rotate(10deg);
+}
+
+.leaf.l4{
+    top:125px;
+    left:25px;
+    transform:rotate(35deg);
+}
+
+
+/* ingichka shox */
+.branch{
+    position:absolute;
+
+    width:120px;
+    height:3px;
+
+    background:#71866c;
+
+    border-radius:10px;
+
+    transform:rotate(35deg);
+
+    top:105px;
+    left:45px;
+
+    opacity:.65;
+}
+
+
+/* =================================
+   MATNLAR
+================================= */
+
+.content{
+    position:relative;
+    z-index:5;
+}
+
+
+/* badge */
+.badge{
+    width:max-content;
+    margin:auto;
+
+    padding:9px 27px;
+
+    border:1px solid #aebca9;
+    border-radius:50px;
+
+    background:#fbfdf9;
+
+    color:#63735f;
+
+    font-size:12px;
+    letter-spacing:4px;
+}
+
+
+/* title */
+h1{
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:55px;
+    line-height:1.05;
+
+    color:#354238;
+
+    text-shadow:
+        0 5px 18px rgba(50,70,50,.08);
+}
+
+
+.sub{
+    max-width:570px;
+
+    margin:18px auto 25px;
+
+    text-align:center;
+
+    color:#707b70;
+
+    font-size:18px;
+    line-height:1.6;
+}
+
+
+/* ajratuvchi */
+.divider{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:22px 0 30px;
+
+    color:#7d9277;
+}
+
+.divider:before,
+.divider:after{
+    content:"";
+
+    height:1px;
+
+    flex:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #cbd5c7
+        );
+}
+
+.divider:after{
+    background:
+        linear-gradient(
+            90deg,
+            #cbd5c7,
+            transparent
+        );
+}
+
+
+/* sana */
+.date{
+    text-align:center;
+
+    font-size:90px;
+
+    line-height:.9;
+
+    font-weight:bold;
+
+    color:#52664e;
+}
+
+.month{
+    margin-top:13px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    letter-spacing:7px;
+
+    color:#788574;
+}
+
+
+/* =================================
+   INFO
+================================= */
+
+.info{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin:35px 0 25px;
+}
+
+.box{
+    padding:19px;
+
+    text-align:center;
+
+    border:1px solid #dce3d9;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f7faf6
+        );
+
+    box-shadow:
+        0 8px 25px rgba(50,70,50,.05);
+
+    transition:.25s;
+}
+
+.box:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(50,70,50,.1);
+}
+
+.label{
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#899487;
+}
+
+.value{
+    margin-top:8px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#3d4b3d;
+}
+
+
+/* =================================
+   COUNTDOWN
+================================= */
+
+.count-title{
+    margin:23px 0 13px;
+
+    text-align:center;
+
+    color:#6e7d6a;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.countdown{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+}
+
+.time{
+    padding:15px 5px;
+
+    text-align:center;
+
+    border:1px solid #dce3d9;
+
+    border-radius:17px;
+
+    background:#fff;
+
+    box-shadow:
+        0 7px 20px rgba(50,70,50,.05);
+}
+
+.num{
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#52664e;
+}
+
+.txt{
+    margin-top:4px;
+
+    color:#929b90;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+
+/* =================================
+   LOKATSIYA
+================================= */
+
+.location{
+    display:block;
+
+    margin-top:25px;
+
+    padding:18px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#42513f;
+
+    border:1px solid #cbd6c8;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f2f7f1
+        );
+
+    transition:.3s;
+}
+
+.location:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 14px 35px rgba(50,70,50,.13);
+}
+
+.location strong{
+    display:block;
+
+    font-size:23px;
+}
+
+.location span{
+    display:block;
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#7c8879;
+}
+
+
+/* =================================
+   QUOTE
+================================= */
+
+.quote{
+    max-width:500px;
+
+    margin:27px auto 10px;
+
+    text-align:center;
+
+    font-style:italic;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    color:#707a6e;
+}
+
+.quote-icon{
+    margin-top:7px;
+
+    font-size:21px;
+
+    color:#8a9a84;
+}
+
+
+/* FOOTER */
+.footer{
+    margin-top:18px;
+
+    text-align:center;
+
+    color:#667264;
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+.footer b{
+    color:#465543;
+}
+
+
+/* =================================
+   TELEFON
+================================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:8px;
+    }
+
+    .card{
+        min-height:auto;
+
+        padding:
+            45px
+            17px
+            35px;
+    }
+
+    h1{
+        font-size:39px;
+    }
+
+    .sub{
+        font-size:15px;
+    }
+
+    .date{
+        font-size:68px;
+    }
+
+    .month{
+        font-size:15px;
+        letter-spacing:3px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .countdown{
+        gap:5px;
+    }
+
+    .num{
+        font-size:23px;
+    }
+
+    .flowers{
+        transform:scale(.7);
+    }
+
+    .top-right{
+        transform:scaleX(-1) scale(.7);
+    }
+
+    .bottom-left{
+        transform:scaleY(-1) scale(.7);
+    }
+
+    .bottom-right{
+        transform:scale(-1) scale(.7);
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+    <!-- =========================
+         YUQORI CHAP GULLAR
+    ========================== -->
+
+    <div class="flowers top-left">
+
+        <div class="flower one"></div>
+        <div class="flower two"></div>
+        <div class="flower three"></div>
+
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="leaf l3"></div>
+        <div class="leaf l4"></div>
+
+        <div class="branch"></div>
+
+    </div>
+
+
+    <!-- YUQORI O'NG -->
+
+    <div class="flowers top-right">
+
+        <div class="flower one"></div>
+        <div class="flower two"></div>
+        <div class="flower three"></div>
+
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="leaf l3"></div>
+        <div class="leaf l4"></div>
+
+        <div class="branch"></div>
+
+    </div>
+
+
+    <!-- PASTKI CHAP -->
+
+    <div class="flowers bottom-left">
+
+        <div class="flower one"></div>
+        <div class="flower two"></div>
+        <div class="flower three"></div>
+
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="leaf l3"></div>
+        <div class="leaf l4"></div>
+
+        <div class="branch"></div>
+
+    </div>
+
+
+    <!-- PASTKI O'NG -->
+
+    <div class="flowers bottom-right">
+
+        <div class="flower one"></div>
+        <div class="flower two"></div>
+        <div class="flower three"></div>
+
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="leaf l3"></div>
+        <div class="leaf l4"></div>
+
+        <div class="branch"></div>
+
+    </div>
+
+
+    <!-- =========================
+         ASOSIY MATN
+    ========================== -->
+
+    <div class="content">
+
+
+        <div class="badge">
+            SAMIMIY TAKLIF
+        </div>
+
+
+        <h1>
+            Oshga taklif qilamiz
+        </h1>
+
+
+        <p class="sub">
+            Aziz mehmonimiz, sizni fayzli
+            dasturxonimizga taklif etamiz.
+        </p>
+
+
+        <div class="divider">
+            <span>♥</span>
+        </div>
+
+
+        <!-- SANA -->
+
+        <div class="date">
+            21
+        </div>
+
+        <div class="month">
+            OKTYABR, 2026
+        </div>
+
+
+        <!-- VAQT -->
+
+        <div class="info">
+
+            <div class="box">
+
+                <div class="label">
+                    Boshlanish vaqti
+                </div>
+
+                <div class="value">
+                    🕖 Ertalab 07:00
+                </div>
+
+            </div>
+
+
+            <div class="box">
+
+                <div class="label">
+                    Hafta kuni
+                </div>
+
+                <div class="value">
+                    📅 Chorshanba
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <div class="count-title">
+            Uchrashuvimizgacha qoldi
+        </div>
+
+
+        <div class="countdown">
+
+            <div class="time">
+
+                <div
+                    class="num"
+                    id="days">
+                    00
+                </div>
+
+                <div class="txt">
+                    Kun
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="num"
+                    id="hours">
+                    00
+                </div>
+
+                <div class="txt">
+                    Soat
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="num"
+                    id="mins">
+                    00
+                </div>
+
+                <div class="txt">
+                    Daqiqa
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="num"
+                    id="secs">
+                    00
+                </div>
+
+                <div class="txt">
+                    Soniya
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOKATSIYA -->
+
+        <a
+            class="location"
+            href="https://www.google.com/maps/search/?api=1&query=Mumtoz%20Toshkent"
+            target="_blank"
+        >
+
+            <strong>
+                📍 Manzil: Mumtoz
+            </strong>
+
+            <span>
+                Google Maps’da lokatsiyani ochish →
+            </span>
+
+        </a>
+
+
+        <!-- QUOTE -->
+
+        <div class="quote">
+
+            “Yaxshi insonlar bilan o‘tkazilgan
+            har bir lahza — eng go‘zal bayram.”
+
+            <div class="quote-icon">
+                ♡
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            Siz bilan diydor ko‘rishishdan
+            mamnun bo‘lamiz.<br>
+
+            <b>
+                Tashrifingiz biz uchun qadrlidir!
+            </b>
+            🤍
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   COUNTDOWN
+   21 OKTYABR 2026 - 07:00
+================================== */
+
+const target =
+    new Date(
+        "2026-10-21T07:00:00+05:00"
+    ).getTime();
+
+
+function countdown(){
+
+    let difference =
+        target - Date.now();
+
+
+    if(difference < 0){
+        difference = 0;
+    }
+
+
+    const days =
+        Math.floor(
+            difference / 86400000
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference % 86400000)
+            / 3600000
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference % 3600000)
+            / 60000
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference % 60000)
+            / 1000
+        );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById(
+        "mins"
+    ).textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById(
+        "secs"
+    ).textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+countdown();
+
+
+setInterval(
+    countdown,
+    1000
+);
+
+</script>
+
+</body>
+</html>
